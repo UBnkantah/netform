@@ -10,17 +10,23 @@ const ContactForm = () => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [address, setAddress] = useState("");
+    const [loading, setLoading] = useState(false);
 
     const contactInfo = {name, email, address}
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        setLoading(true)
         fetch("/", {
             method: "POST",
             headers: {"Content-Type": "application/x-www-form-urlencoded"},
             body: encode({"form-name": "contact", ...contactInfo})
         }).then(() => alert("Success!"))
         .catch(err => alert(err));
+      setLoading(false)
+      setName('')
+      setAddress('')
+      setEmail('')
     }
 
 
@@ -43,7 +49,7 @@ const ContactForm = () => {
       </Form.Group>
 
       <Button variant="primary" type="submit">
-        Submit
+        {loading ? 'Submitting...' : 'Submit'}
       </Button>
     </Form>
     </div>

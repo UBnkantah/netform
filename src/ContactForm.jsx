@@ -45,7 +45,7 @@ const ContactForm = () => {
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Phone Number</Form.Label>
-        <Form.Control type="number" value={address} onChange={(e) => setAddress(e.target.value)} placeholder="Password" />
+        <Form.Control type="number" value={address} onChange={(e) => setAddress(e.target.value)} placeholder="Address" />
       </Form.Group>
 
       <Button variant="primary" type="submit">
